@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { add } from 'date-fns';
-import { WeeklyCalendar } from '../.';
+import { WeeklyCalendar } from '../src/index';
 
 import { Card } from 'antd';
 import './index.less';

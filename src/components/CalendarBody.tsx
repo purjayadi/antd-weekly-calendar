@@ -93,7 +93,7 @@ function Calendar<T extends GenericEvent>({
       days: 1 + counter,
     });
     const formattedDayandMonth =
-      format(columnDate, 'iii') + ' ' + format(columnDate, 'dd');
+      format(columnDate, 'iii') + ', ' + format(columnDate, 'dd MMMM');
     return {
       title: formattedDayandMonth,
       dataIndex: day,
@@ -162,21 +162,20 @@ function Calendar<T extends GenericEvent>({
         bordered={true}
         showHeader={true}
         onRow={(_, rowIndex) => {
-          if (rowIndex === ALL_DAY_ROW) {
-            return {
-              style: {
-                backgroundColor: 'white',
-                position: 'sticky',
-                boxShadow: 'rgba(0, 0, 0, 0.05) -1px 4px 4px ',
-                zIndex: 1,
-                top: 0,
-              },
-            };
-          }
+          // if (rowIndex === ALL_DAY_ROW) {
+          //   return {
+          //     style: {
+          //       backgroundColor: 'white',
+          //       boxShadow: 'rgba(0, 0, 0, 0.05) -1px 4px 4px ',
+          //       zIndex: 1,
+          //       top: 0,
+          //     },
+          //   };
+          // }
           return {};
         }}
         scroll={{
-          y: 1000,
+          y: 500,
         }}
       />
     </div>

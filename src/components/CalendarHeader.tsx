@@ -23,10 +23,10 @@ const MonthName: React.FunctionComponent<MonthNameProps> = ({ startWeek }) => {
     const endOfWeekDate = endOfWeek(startWeek);
 
     if (getMonth(endOfWeekDate) == getMonth(startWeek)) {
-      return format(startWeek, 'MMM');
+      return format(startWeek, 'MMMM');
     }
 
-    return format(startWeek, 'MMM') + '-' + format(endOfWeekDate, 'MMM');
+    return format(startWeek, 'MMMM') + '-' + format(endOfWeekDate, 'MMMM');
   };
 
   return (
@@ -37,7 +37,7 @@ const MonthName: React.FunctionComponent<MonthNameProps> = ({ startWeek }) => {
       >
         {getMonthName()}
       </Typography.Title>
-      <Tag>Week {getWeek(new Date(addWeeks(startWeek, -1)))}</Tag>
+      {/* <Tag>Week {getWeek(new Date(addWeeks(startWeek, -1)))}</Tag> */}
     </div>
   );
 };
@@ -77,17 +77,6 @@ export const CalendarHeader: React.FunctionComponent<CalendarHeaderProps> = ({
           <div style={{ alignSelf: 'center' }}>
             <MonthName startWeek={startWeek} />
           </div>
-        </Col>
-        <Col>
-          <DatePicker
-            onChange={date => {
-              if (date) {
-                setStartWeek(startOfWeek(new Date(date)));
-              }
-            }}
-            picker="week"
-            defaultValue={startOfWeek(new Date())}
-          />
         </Col>
       </Row>
     </>

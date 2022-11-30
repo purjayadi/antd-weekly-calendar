@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "description": "weekly calendar for antd",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yoavweber/antd-weekly-calendar.git"
+    "url": "git+https://github.com/yoavweber/antd-weekly-calendar.git"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -37,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "antd-weekly-calendar",
+  "name": "@purjayadi/antd-weekly-calendar",
   "author": "yoavweber",
   "module": "dist/antd-weekly-calendar.esm.js",
   "size-limit": [
@@ -65,5 +65,19 @@
     "date-fns": "^2.23.0",
     "less": "^4.1.1",
     "less-loader": "^7.3.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yoavweber/antd-weekly-calendar/issues"
+  },
+  "homepage": "https://github.com/yoavweber/antd-weekly-calendar#readme",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {},
+  "keywords": [
+    "antd",
+    "weekly",
+    "calendar"
+  ]
 }

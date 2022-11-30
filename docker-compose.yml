@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    container_name: custome-calendar
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/home/calendar
+    stdin_open: true
+    tty: true
+    
+volumes:
+  db:
+networks:
+  network-calendar: {}
