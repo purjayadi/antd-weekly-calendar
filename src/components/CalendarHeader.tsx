@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Row, Col, Tag, Typography } from 'antd';
+import { Button, Row, Col,  Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import {
   addWeeks,
@@ -7,10 +7,8 @@ import {
   endOfWeek,
   getMonth,
   format,
-  getWeek,
 } from 'date-fns';
 
-import DatePicker from './DatePicker';
 
 import { CalendarHeaderProps } from './types';
 

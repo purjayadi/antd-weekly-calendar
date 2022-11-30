@@ -14,7 +14,6 @@ import { getDayHoursEvents, sizeEventBox, MIN_BOX_SIZE } from './utils';
 const BOX_POSITION_OFFSET = 26;
 const SCROLL_TO_ROW = 19;
 const TURQUOISE = '#36CFC9';
-const ALL_DAY_ROW = 0;
 
 const EventBlock = <T extends GenericEvent>({
   event,
@@ -161,7 +160,7 @@ function Calendar<T extends GenericEvent>({
         pagination={false}
         bordered={true}
         showHeader={true}
-        onRow={(_, rowIndex) => {
+        onRow={(_) => {
           // if (rowIndex === ALL_DAY_ROW) {
           //   return {
           //     style: {
