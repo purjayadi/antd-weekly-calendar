@@ -3,10 +3,12 @@ export interface GenericEvent {
   startTime: Date
   endTime: Date
   title?: string | undefined | null
+  author?: string | undefined | null
   location?: string | undefined | null
   allDay?: boolean
   textColor?: string | undefined
   backgroundColor?: string | undefined
+  secondColor?: string | undefined
 }
 
 export interface CalendarProps<T> {

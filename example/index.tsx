@@ -12,15 +12,20 @@ const App = () => {
     eventId: '12',
     startTime: new Date(),
     endTime: add(new Date(), { hours: 1 }),
-    title: 'test event',
+    title: 'Daily Meet',
+    backgroundColor: '#FF7800',
+    secondColor: '#FFF3B9',
+    author: 'Jane Cooper'
   };
 
   const coloredEvent = {
     eventId: '123',
-    startTime: add(new Date(), { days: 1 }),
-    endTime: add(new Date(), { days: 1, hours: 2 }),
-    title: 'another test event',
-    backgroundColor: 'green',
+    startTime: new Date('2022-12-02 10:00:00'),
+    endTime: new Date('2022-12-02 11:00:00'),
+    title: 'Daily Meet',
+    backgroundColor: '#409679',
+    secondColor: '#E8FFF7',
+    author: 'Ralph Edward'
   };
 
   return (

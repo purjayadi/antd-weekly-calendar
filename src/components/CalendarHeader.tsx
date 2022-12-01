@@ -21,10 +21,10 @@ const MonthName: React.FunctionComponent<MonthNameProps> = ({ startWeek }) => {
     const endOfWeekDate = endOfWeek(startWeek);
 
     if (getMonth(endOfWeekDate) == getMonth(startWeek)) {
-      return format(startWeek, 'MMMM');
+      return format(startWeek, 'MMMM yyy');
     }
 
-    return format(startWeek, 'MMMM') + '-' + format(endOfWeekDate, 'MMMM');
+    return format(startWeek, 'MMMM yyy') + ' - ' + format(endOfWeekDate, 'MMMM yyy');
   };
 
   return (

@@ -12,8 +12,9 @@ import {
 import { getDayHoursEvents, sizeEventBox, MIN_BOX_SIZE } from './utils';
 
 const BOX_POSITION_OFFSET = 26;
-const SCROLL_TO_ROW = 19;
-const TURQUOISE = '#36CFC9';
+const SCROLL_TO_ROW = new Date().toLocaleTimeString([], { hour: '2-digit' });
+const BLUE = '#1444AF';
+const SECOND_BLUE = '#1444AF';
 
 const EventBlock = <T extends GenericEvent>({
   event,
@@ -28,37 +29,64 @@ const EventBlock = <T extends GenericEvent>({
   const boxStyle = event.allDay
     ? { boxSize: MIN_BOX_SIZE, boxPosition: index * BOX_POSITION_OFFSET }
     : sizeEventBox(event, fitHourToDate);
-  const boxLeftPosition = event.allDay ? 0 : BOX_POSITION_OFFSET * index;
 
   return (
-    <div
-      style={{
-        display:
-          !event.allDay &&
-          differenceInMinutes(new Date(event.endTime), fitHourToDate) === 0
-            ? 'none'
-            : 'block',
-        height: boxStyle.boxSize + '%',
-        width: event.allDay ? 80 + '%' : 80 / events + '%',
-        position: 'absolute',
-        top: boxStyle.boxPosition + '%',
-        left: boxLeftPosition + '%',
-        borderColor: 'white',
-        borderStyle: 'solid',
-        borderWidth: '0.01rem',
-        borderRadius: '5px',
-        backgroundColor: event.backgroundColor
-          ? event.backgroundColor
-          : TURQUOISE,
-        zIndex: 1,
-      }}
-      onClick={onEventClick ? () => onEventClick(event) : undefined}
-      key={index}
-    >
-      <p style={{ color: 'white', fontSize: '12px', paddingLeft: '5px' }}>
-        {event.title}
-      </p>
-    </div>
+    <>
+      <div
+        style={{
+          display: 'block',
+          height: boxStyle.boxSize + '%',
+          width: '2%',
+          position: 'absolute',
+          top: boxStyle.boxPosition + '%',
+          left: '0%',
+          backgroundColor: event.backgroundColor ? event.backgroundColor : BLUE,
+          zIndex: 1,
+          // borderTopLeftRadius: '4px',
+          // borderBottomLeftRadius: '4px',
+        }}
+      ></div>
+      <div
+        style={{
+          display:
+            !event.allDay &&
+            differenceInMinutes(new Date(event.endTime), fitHourToDate) === 0
+              ? 'none'
+              : 'block',
+          height: boxStyle.boxSize + '%',
+          width: event.allDay ? 98 + '%' : 98 / events + '%',
+          position: 'absolute',
+          top: boxStyle.boxPosition + '%',
+          left: '2%',
+          backgroundColor: event.secondColor ? event.secondColor : SECOND_BLUE,
+          zIndex: 1,
+          // borderTopRightRadius: '4px',
+          // borderBottomRightRadius: '4px',
+        }}
+        onClick={onEventClick ? () => onEventClick(event) : undefined}
+        key={index}
+      >
+        <div
+          style={{
+            color: event.backgroundColor,
+            paddingLeft: '5px',
+            fontWeight: 'bold',
+          }}
+        >
+          <span>{event.title}</span>
+        </div>
+        <p
+          style={{
+            color: '#737373',
+            fontSize: '12px',
+            paddingLeft: '5px',
+            paddingTop: '5px',
+          }}
+        >
+          {event.author}
+        </p>
+      </div>
+    </>
   );
 };
 
@@ -136,12 +164,15 @@ function Calendar<T extends GenericEvent>({
     key: 'hour',
     width: 1,
     render: (hour: ColumnNode<T>, {}, id: number) => {
+      console.log('id', id);
+      console.log('id', hour);
+      
       return {
         props: {
           style: { width: '10%' },
         },
         children:
-          SCROLL_TO_ROW === id ? (
+          SCROLL_TO_ROW === hour ? (
             <div ref={rowRef}>{hour}</div>
           ) : (
             <div>{hour}</div>
@@ -160,7 +191,7 @@ function Calendar<T extends GenericEvent>({
         pagination={false}
         bordered={true}
         showHeader={true}
-        onRow={(_) => {
+        onRow={_ => {
           // if (rowIndex === ALL_DAY_ROW) {
           //   return {
           //     style: {
