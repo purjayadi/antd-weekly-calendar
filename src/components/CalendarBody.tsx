@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { add, format, getDay, setDay, differenceInMinutes } from 'date-fns';
 import { Table } from 'antd';
 
@@ -42,8 +42,6 @@ const EventBlock = <T extends GenericEvent>({
           left: '0%',
           backgroundColor: event.backgroundColor ? event.backgroundColor : BLUE,
           zIndex: 1,
-          // borderTopLeftRadius: '4px',
-          // borderBottomLeftRadius: '4px',
         }}
       ></div>
       <div
@@ -96,12 +94,23 @@ function Calendar<T extends GenericEvent>({
   onEventClick,
   weekends,
 }: CalendarBodyProps<T>) {
-  const rowRef = useRef<null | HTMLDivElement>(null);
+  const [_scrollY, setScrollY] = useState(0);
+
+  function logit() {
+    setScrollY(window.pageYOffset);
+  }
+
   useEffect(() => {
-    if (rowRef.current) {
-      rowRef.current?.scrollIntoView();
+    function watchScroll() {
+      window.addEventListener("scroll", logit);
     }
-  }, [rowRef]);
+    watchScroll();
+    return () => {
+      window.removeEventListener("scroll", logit);
+    };
+  });
+
+  const rowRef = useRef<null | HTMLDivElement>(null);
 
   const dayList = weekends
     ? [
@@ -163,10 +172,7 @@ function Calendar<T extends GenericEvent>({
     dataIndex: 'hour',
     key: 'hour',
     width: 1,
-    render: (hour: ColumnNode<T>, {}, id: number) => {
-      console.log('id', id);
-      console.log('id', hour);
-      
+    render: (hour: ColumnNode<T>, {}) => {
       return {
         props: {
           style: { width: '10%' },
