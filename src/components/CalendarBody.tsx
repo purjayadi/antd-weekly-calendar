@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { add, format, getDay, setDay, differenceInMinutes } from 'date-fns';
 import { Table } from 'antd';
 
@@ -94,22 +94,7 @@ function Calendar<T extends GenericEvent>({
   onEventClick,
   weekends,
 }: CalendarBodyProps<T>) {
-  const [_scrollY, setScrollY] = useState(0);
-
-  function logit() {
-    setScrollY(window.pageYOffset);
-  }
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit);
-    }
-    watchScroll();
-    return () => {
-      window.removeEventListener("scroll", logit);
-    };
-  });
-
+  
   const rowRef = useRef<null | HTMLDivElement>(null);
 
   const dayList = weekends
