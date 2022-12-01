@@ -153,7 +153,7 @@ function Calendar<T extends GenericEvent>({
     };
   });
   const hourColumn = {
-    title: 'Hours',
+    title: '',
     dataIndex: 'hour',
     key: 'hour',
     width: 1,
@@ -196,7 +196,7 @@ function Calendar<T extends GenericEvent>({
           return {};
         }}
         scroll={{
-          y: 500,
+          y: 400,
         }}
       />
     </div>

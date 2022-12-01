@@ -81,16 +81,16 @@ export const getDayHoursEvents = <T extends GenericEvent>(
 ) => {
   const ALL_DAY_EVENT = 0;
   const events: EventsObject<T>[] = [];
-  for (let i = 0; i < 26; i++) {
+  for (let i = 0; i < 24; i++) {
     const startDate = add(startOfDay(startOfWeek(value.startDate)), {
       days: 1,
     });
-    const hour = addHours(startDate, i - 1);
+    const hour = addHours(startDate, i+7);
 
     events.push({
       id: i,
       hourObject: hour,
-      hour: i != ALL_DAY_EVENT ? format(hour, 'hh a') : 'all-day',
+      hour: format(hour, 'hh a'),
       Monday:
         weekObject?.monday &&
         weekObject?.monday.filter(e => {
