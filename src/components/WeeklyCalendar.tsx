@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from 'antd';
 import { startOfWeek, endOfWeek } from 'date-fns';
 
 import Calendar from './CalendarBody';
@@ -33,7 +32,7 @@ export function WeeklyCalendar<T extends GenericEvent>({
   const weekObject = daysToWeekObject(events, startWeek);
 
   return (
-    <Card>
+    <>
       <CalendarHeader startWeek={startWeek} setStartWeek={setStartWeek} />
       <Calendar
         weekDates={weekPeriod}
@@ -41,6 +40,6 @@ export function WeeklyCalendar<T extends GenericEvent>({
         onEventClick={onEventClick}
         weekends={weekends}
       />
-    </Card>
+    </>
   );
 }
