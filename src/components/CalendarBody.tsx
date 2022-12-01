@@ -14,7 +14,7 @@ import { getDayHoursEvents, sizeEventBox, MIN_BOX_SIZE } from './utils';
 const BOX_POSITION_OFFSET = 26;
 const SCROLL_TO_ROW = new Date().toLocaleTimeString([], { hour: '2-digit' });
 const BLUE = '#1444AF';
-const SECOND_BLUE = '#1444AF';
+const SECOND_BLUE = '#ffff';
 
 const EventBlock = <T extends GenericEvent>({
   event,
