@@ -30,13 +30,11 @@ const App = () => {
 
   return (
     <div>
-      <Card>
         <WeeklyCalendar
           events={[event, coloredEvent]}
           weekends={true}
           onEventClick={event => console.log(event)}
         />{' '}
-      </Card>
     </div>
   );
 };
