@@ -16,7 +16,7 @@ A weekly calendar component for antd.
 
 
 ```
-npm install antd-weekly-calendar
+npm install @purjayadi/antd-weekly-calendar
 ```
 
 ## Example
