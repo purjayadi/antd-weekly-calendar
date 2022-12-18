@@ -2,7 +2,7 @@
 
 A weekly calendar component for antd.
 
-![Selection_839](https://user-images.githubusercontent.com/44646033/131834481-df365615-bd2d-43e0-a817-ae32b9140fd1.png)
+![Selection_839](https://i.im.ge/2022/12/18/dnPCy8.image.png)
 
 - [Antd Weekly Calendar](#antd-weekly-calendar)
   - [Getting Started](#getting-started)
@@ -72,7 +72,8 @@ function MyCalendar() {
 | location?  |    `string`    | -           | event location |
 | allDay?  |   `boolean`   | `false`   | is the event a full day event?                                                          |
 | textColor? |  `string`       |       `white` | You can use any of the CSS color formats such `#f00`, `#ff0000`, `rgb(255,0,0)`, or `red`.|
-| backgroundColor?| `string`   | `#36CFC9`     | You can use any of the CSS color formats such `#f00`, `#ff0000`, `rgb(255,0,0)`, or `red`.|
+| backgroundColor?| `string`   | `#1444AF`     | You can use any of the CSS color formats such `#f00`, `#ff0000`, `rgb(255,0,0)`, or `red`.|
+| secondColor?| `string`   | `#ffff`     | You can use any of the CSS color formats such `#f00`, `#ff0000`, `rgb(255,0,0)`, or `red`.|
 
 
 
